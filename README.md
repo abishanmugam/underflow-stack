@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Stack Underflow | SOF Clone | MERN-GraphQL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Fullstack [Stack Overflow](https://stackoverflow.com/) clone (QnA site) made with MERN + GraphQL
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+[Deployed on Netlify (front-end) & Heroku (back-end)](https://stackunderflow.netlify.app)
 
-### `npm start`
+## Built using
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Front-end
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [ReactJS](https://reactjs.org/) - Frontend framework
+- [Apollo Client](https://www.apollographql.com/docs/react/) - State management library to manage both local and remote data with GraphQL
+- [Context API w/ hooks](https://reactjs.org/docs/context.html) - For state of user, toast notifs, theme etc.
+- [React Router](https://reactrouter.com/) - For general routing & navigation
+- [React Hook Form](https://react-hook-form.com/) - For flexible forms
+- [Material-UI w/ lots of CSS customisations](https://material-ui.com/) - UI library
+- [Yup](https://github.com/jquense/yup) - For form validation
+- [date-fns](https://date-fns.org/) - For manipulating & formatting of dates
 
-### `npm test`
+#### Back-end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/en/) - Runtime environment for JS
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/) - To build a self-documenting GraphQL API server
+- [MongoDB](https://www.mongodb.com/) - Database to store document-based data
+- [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for Node.js
+- [JSON Web Token](https://jwt.io/) - A standard to secure/authenticate HTTP requests
+- [Bcrypt.js](https://www.npmjs.com/package/bcryptjs) - For hashing passwords
+- [Mongoose Unique Validator](https://www.npmjs.com/package/mongoose-unique-validator) - Plugin for better error handling of unique fields within Mongoose schema
+- [Dotenv](https://www.npmjs.com/package/dotenv) - To load environment variables from a .env file
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Authentication (login/register with username-password)
+- CRUD questions, answers & comments
+- Upvote/downvote questions & answers
+- Tags for organising questions
+- Page views - A view is registered whenever the question page is opened
+- Pages for added tags, registered users & more
+- Sorting of questions on basis of hot, votes, views, newest & oldest
+- Search questions over the server on basis of question title & body
+- Pagination of posts in the form of "Load More" button
+- Error management to prevent app crashes
+- Toast notifications for actions: adding questions, deleting comments etc.
+- Loading spinners for relevant fetching processes
+- Formatted dates for adding/updating questions/answers/comments
+- Dark mode toggle w/ local storage save
+- Proper responsive UI for all screens
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Desktop/Tablet
 
-### `npm run eject`
+![Desktop-1](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/desktop-1.jpg)
+![Desktop-2](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/desktop-2.jpg)
+![Desktop-3](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/desktop-3.jpg)
+![Desktop-4](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/desktop-4.jpg)
+![Desktop-5](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/desktop-5.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Mobile
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Mobile-1](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/mobile-1.jpg)
+![Mobile-2](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/mobile-2.jpg)
+![Mobile-3](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/mobile-3.jpg)
+![Mobile-4](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/mobile-4.jpg)
+![Mobile-5](https://github.com/amand33p/stack-underflow-mern-gql/blob/master/screenshots/mobile-5.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Env variable:
 
-## Learn More
+Create a .env file in server directory and add the following:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+MONGODB_URI = "Your Mongo URI"
+PORT = 4000
+SECRET = "Your JWT secret"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+#### Client:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open client/src/backendUrl.js & change "backend" variable to `"http://localhost:4000"`
 
-### Analyzing the Bundle Size
+```
+cd client
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Server:
 
-### Making a Progressive Web App
+Note: Make sure that you have installed 'nodemon' as global package.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+cd server
+npm install
+npm run dev
+```
